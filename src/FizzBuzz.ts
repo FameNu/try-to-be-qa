@@ -1,15 +1,31 @@
-export function fizzBuzz(n: number): string[] {
-  const result: string[] = []
-  for (let i = 1; i <= n; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      result.push('FizzBuzz')
-    } else if (i % 3 === 0) {
-      result.push('Fizz')
-    } else if (i % 5 === 0) {
-      result.push('Buzz')
-    } else {
-      result.push(i.toString())
-    }
+import isNumber from "./utils/isNumber"
+
+class FizzBuzz {
+  private num: number | null
+
+  constructor(num: number | string | null = null) {
+    this.num = isNumber(num) ? parseFloat(num as string) : null
   }
-  return result
+
+  public getResult(): string[] {
+    if (this.num === null || this.num < 1 || !Number.isInteger(this.num) || this.num % 1 !== 0) {
+      return []
+    }
+
+    const list: string[] = []
+    for (let i = 1; i <= this.num; i++) {
+      list.push(this.calFizzBuzz(i))
+    }
+
+    return list
+  }
+
+  private calFizzBuzz(num: number): string {
+    if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz'
+    if (num % 5 === 0) return 'Buzz'
+    if (num % 3 === 0) return 'Fizz'
+    return num.toString()
+  }
 }
+
+export default FizzBuzz
