@@ -8,7 +8,13 @@ class FizzBuzz {
   }
 
   public getResult(): string[] {
-    if (!this.num || this.isNotStringAndNumber(this.num) || this.num < 1 || !isNumber(this.num) || this.num % 1 !== 0) {
+    if (
+      !this.num ||
+      this.isNotStringAndNumber(this.num) ||
+      !isNumber(this.num) ||
+      this.num < 1 ||
+      this.num % 1 !== 0
+    ) {
       return []
     }
 
