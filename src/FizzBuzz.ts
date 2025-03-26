@@ -1,14 +1,14 @@
 import isNumber from "./utils/isNumber"
 
 class FizzBuzz {
-  private num: number | null
+  private num: any
 
-  constructor(num: number | string | null = null) {
-    this.num = isNumber(num) ? parseFloat(num as string) : null
+  constructor(num: any = null) {
+    this.num = num
   }
 
   public getResult(): string[] {
-    if (this.num === null || this.num < 1 || !Number.isInteger(this.num) || this.num % 1 !== 0) {
+    if (!this.num || this.isNotStringAndNumber(this.num) || this.num < 1 || !isNumber(this.num) || this.num % 1 !== 0) {
       return []
     }
 
@@ -25,6 +25,10 @@ class FizzBuzz {
     if (num % 5 === 0) return 'Buzz'
     if (num % 3 === 0) return 'Fizz'
     return num.toString()
+  }
+
+  private isNotStringAndNumber(value: any): boolean {
+    return typeof value !== 'string' && typeof value !== 'number'
   }
 }
 
