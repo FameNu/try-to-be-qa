@@ -24,6 +24,26 @@ Because one day, I woke up and thought:
 
 ---
 
+# Note
+This practice uses Jest with TypeScript and is exclusively compatible with `Bun`.
+
+#### install dependencies:
+```bash
+bun i
+```
+
+#### run tests:
+```bash
+bun test
+```
+
+#### run manual:
+```bash
+bun manual-test
+```
+
+---
+
 # FizzBuzz Requirement
 
 #### 1.  Input and Output
