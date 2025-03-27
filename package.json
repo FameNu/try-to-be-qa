@@ -10,5 +10,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "manual-test": "bun run index.ts"
   }
 }
