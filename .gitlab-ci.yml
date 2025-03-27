@@ -3,10 +3,16 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
+default:
+  iamge: oven/bun:latest  # Use the latest version of bun
+
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - bun i
+  artifacts:  # This job creates artifacts that can be used in later stages.
+    paths:
+      - node_modules/  # The node_modules directory is saved as an artifact.
 
 automated-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
