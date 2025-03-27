@@ -85,5 +85,32 @@ describe('FizzBuzz', () => {
         })
       })
     })
+
+    describe('input invalid string to FizzBuzz', () => {
+      it('input empty string', () => {
+        const fizzBuzz = new FizzBuzz('')
+        expect(fizzBuzz.getResult()).toEqual([])
+      })
+
+      it('input "string"', () => {
+        const fizzBuzz = new FizzBuzz('string')
+        expect(fizzBuzz.getResult()).toEqual([])
+      })
+
+      it('input "Hello, Wolrd!"', () => {
+        const fizzBuzz = new FizzBuzz('Hello, World!')
+        expect(fizzBuzz.getResult()).toEqual([])
+      })
+
+      it('input "3B"', () => {
+        const fizzBuzz = new FizzBuzz('3B')
+        expect(fizzBuzz.getResult()).toEqual([])
+      })
+
+      it('input ""3""', () => {
+        const fizzBuzz = new FizzBuzz('"3"')
+        expect(fizzBuzz.getResult()).toEqual([])
+      })
+    })
   })
 })
