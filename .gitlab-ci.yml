@@ -7,6 +7,8 @@ default:
   image: oven/bun:latest
 
 build-job:
+  only:
+    - main
   stage: build
   script:
     - bun i
@@ -15,11 +17,15 @@ build-job:
       - node_modules/
 
 automated-test-job:
+  only:
+    - main
   stage: test
   script:
     - bun test
 
 manual-test-job:
+  only:
+    - main
   stage: test
   script:
     - echo "Wait QA to Review"
@@ -27,6 +33,8 @@ manual-test-job:
   allow_failure: false
 
 deploy-job:
+  only:
+    - main
   stage: deploy
   environment: production
   script:
